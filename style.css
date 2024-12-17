@@ -1,0 +1,40 @@
+/*
+Theme Name: Cooking Starter
+Theme URI: https://lyminhhoang.com
+Author:  Mr Hoang
+Author URI: https://lyminhhoang.com
+Description: Cooking-Starter Template wordpress 
+Version: 1.0
+Textdomain: lmhoang
+*/
+
+.hidden {
+    display: none;
+}
+
+.blog-info figure.img-thumbnails {
+    height: 230px;
+    overflow: hidden;
+    margin: 0px;
+}
+.blog-info figure.img-thumbnails img {
+    width:  100%;
+}
+.blog-des .lmh-title {
+    height: 60px;
+    overflow: hidden;
+}
+
+ul.breadcrumbs-custom-path .current-item {
+    color: #cfcfcf !important;
+
+}
+
+figcaption, figcaption.wp-element-caption {
+    text-align: center;
+    margin: 0px;
+    padding-top: 0px;
+    font-style: italic;
+    font-weight: lighter;
+    line-height: 1.2em;
+}
