@@ -6,24 +6,10 @@
  * @package Redux Framework
  */
 
-if ( ! class_exists( 'Redux' ) ) {
-	return null;
-}
+if ( ! class_exists( 'Redux' ) ) { return null; }
 
-// This is your option name where all the Redux data is stored.
 $opt_name = 'lmh_opt';
-
-/**
- * GLOBAL ARGUMENTS
- * All the possible arguments for Redux.
- * For full documentation on arguments, please refer to: @link https://github.com/ReduxFramework/ReduxFramework/wiki/Arguments
- */
-
-/**
- * ---> BEGIN ARGUMENTS
- */
-
-$theme = wp_get_theme(); // For use with some settings. Not necessary.
+$theme = wp_get_theme();
 
 $args = array(
 	// REQUIRED!!  Change these values as you need/desire.
@@ -72,7 +58,7 @@ $args = array(
 	'page_parent'               => 'themes.php',
 
 	// Permissions needed to access the options panel.
-	'page_permissions'          => 'manage_options',
+	'page_permissions'          => 'manage_categories',
 
 	// Specify a custom URL to an icon.
 	'menu_icon'                 => '',
@@ -153,22 +139,18 @@ $args = array(
 	),
 );
 
-// ADMIN BAR LINKS -> Setup custom links in the admin bar menu as external items.
 $args['admin_bar_links'][] = array(
 	'id'    => 'lmh-docs',
 	'href'  => '//lyminhhoang.com',
 	'title' => esc_html__( 'Support', 'lmhoang' ),
 );
 
-// SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
 $args['share_icons'][] = array(
 	'url'   => 'https://www.facebook.com/hoanglyminh',
 	'title' => esc_html__( 'My Facebook', 'lmhoang' ),
 	'icon'  => 'el el-facebook',
 );
 
-
-// Panel Intro text -> before the form.
 if ( ! isset( $args['global_variable'] ) || false !== $args['global_variable'] ) {
 	if ( ! empty( $args['global_variable'] ) ) {
 		$v = $args['global_variable'];
@@ -180,35 +162,19 @@ if ( ! isset( $args['global_variable'] ) || false !== $args['global_variable'] )
 	$args['intro_text'] = '<p>' . esc_html__( 'This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.', 'lmhoang' ) . '</p>';
 }
 
-// Add content after the form.
 $args['footer_text'] = '<p>' . esc_html__( 'This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.', 'lmhoang' ) . '</p>';
 
 Redux::set_args( $opt_name, $args );
 
-/*
- * ---> END ARGUMENTS
- */
-
-/*
- *
- * ---> BEGIN SECTIONS
- *
- */
-
-/* As of Redux 3.5+, there is an extensive API. This API can be used in a mix/match mode allowing for. */
-
-/* -> START Basic Fields. */
-
-    $kses_exceptions = array(
-        'a'      => array(
-            'href' => array(),
-        ),
-        'strong' => array(),
-        'br'     => array(),
-    );
+$kses_exceptions = array(
+	'a'      => array(
+		'href' => array(),
+	),
+	'strong' => array(),
+	'br'     => array(),
+);
 
 /* General SECTIONS */
-
     $section = array(
         'title'  => esc_html__( 'General', 'lmhoang' ),
         'id'     => 'general',
@@ -220,19 +186,22 @@ Redux::set_args( $opt_name, $args );
                 'type'	=> 'media',
 				'width'	=> 30,
                 'title' => esc_html__( 'Your Favicon', 'lmhoang' ),
+				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 100px x 100px', 'lmhoang' ),
 				'default' => 'https://lyminhhoang.com/layout/images/logo.png',
             ),
             array(
                 'id'		=> 'logo',
                 'type'		=> 'media',
 				'height'	=> 50,
+				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 300px x 300px', 'lmhoang' ),
                 'title'		=> esc_html__( 'Your Logo', 'lmhoang' ),
             ),
 			array(
-                'id'		=> 'read-more-ajax',
-                'type'		=> 'switch',
-                'title'		=> esc_html__( 'Read more by ajax', 'lmhoang' ),
-				'default'	=> false,
+                'id'		=> 'image_default',
+                'type'		=> 'media',
+				'height'	=> 50,
+				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 1.920 x 1.080 px', 'lmhoang' ),
+                'title'		=> esc_html__( 'Your Image Default', 'lmhoang' ),
             ),
 			array(
 				'id'       => 'sologan',
@@ -240,6 +209,12 @@ Redux::set_args( $opt_name, $args );
 				'title'    => esc_html__( 'Your Sologan', 'lmhoang' ),
 				'default'	=> 'Ai cũng có thể vào bếp',
 			),
+			array(
+                'id'       => 'email',
+                'type'     => 'text',
+                'title'    => esc_html__( 'Your Email', 'lmhoang' ),
+				'default'	=> get_bloginfo("admin_email") ,
+            ),
 			array(
                 'id'       => 'address',
                 'type'     => 'text',
@@ -254,11 +229,17 @@ Redux::set_args( $opt_name, $args );
 				'default'	=> '84707619481',
             ),
 			array(
+                'id'		=> 'open-hours-title',
+                'type'		=> 'text',
+                'title'		=> esc_html__( 'Title Open Hours', 'lmhoang' ),
+				'default'	=> 'Open Hours',
+            ),
+			array(
                 'id'		=> 'open-hours',
                 'type'		=> 'textarea',
                 'title'		=> esc_html__( 'Open Hours', 'lmhoang' ),
 				'subtitle'	=> esc_html__( 'You can use html tag with class css bootstrap', 'lmhoang' ),
-				'default'	=> '<p class="mt-2"><span>Mon - Sat</span> : 9Am - 6Pm</p><p> <span>Sunday</span> : CLOSED</p>',
+				'default'	=> '<p class="mt-2"><span>Mon - Sat</span>: 9Am - 6Pm</p><p> <span>Sunday</span>: CLOSED</p>',
             ),
         ),
     );
@@ -284,13 +265,26 @@ Redux::set_args( $opt_name, $args );
     Redux::set_section( $opt_name, $section );
 /* End Slides SECTIONS */
 
-
 /* Home SECTIONS */
     $section = array(
       'title' => __( 'Home Page', 'lmhoang' ),
       'id'    => 'home-page',
       'icon'  => 'el el-home',
 		'fields' => array(
+			array(
+				'id'      => 'homepage-blocks',
+				'type'    => 'sorter',
+				'title'   => 'Homepage Layout Manager',
+				'desc'    => 'Organize how you want the layout to appear on the homepage',
+				'options' => array(
+					'enabled'  => array(
+						'about' => 'Section About',
+						'blog' => 'Section Blog',
+						'video'   => 'Section Video',
+						'project'   => 'Section Project',
+					),
+				),
+			),
 			array(
 				'type'	=> 'section',
 				'title' => esc_html__('Section About Option', 'lmhoang'),
@@ -334,32 +328,67 @@ Redux::set_args( $opt_name, $args );
 				'title' => esc_html__('Blog Description', 'lmhoang'),
 				'default'	=> 'Latest News',
 			),
-			
+			array(
+				'type'	=> 'section',
+				'title' => esc_html__('Section Video Option', 'lmhoang'),
+				'indent' => true
+			),
+			array(
+				'id'	=> 'home-video',
+				'type'	=> 'switch',
+				'title' => esc_html__('Section Video', 'lmhoang'),
+				'subtitle' => esc_html__('On | Off Section Video', 'lmhoang'),
+				'default'	=> false,
+			),
+			array(
+				'id'	=> 'home-video-title',
+				'type'	=> 'text',
+				'title' => esc_html__('Video Title', 'lmhoang'),
+				'default'	=> 'Popular Video',
+			),
+			array(
+				'id'	=> 'home-video-desc',
+				'type'	=> 'text',
+				'title' => esc_html__('Video Description', 'lmhoang'),
+				'default'	=> 'Our Reviews',
+			),
+			array(
+				'type'	=> 'section',
+				'title' => esc_html__('Section Project Option', 'lmhoang'),
+				'indent' => true
+			),
+			array(
+				'id'	=> 'home-project',
+				'type'	=> 'switch',
+				'title' => esc_html__('Section Project', 'lmhoang'),
+				'subtitle' => esc_html__('On | Off Section Project', 'lmhoang'),
+				'default'	=> false,
+			),
+			array(
+				'id'	=> 'home-project-title',
+				'type'	=> 'text',
+				'title' => esc_html__('Project Title', 'lmhoang'),
+				'default'	=> 'Project Title',
+			),
+			array(
+				'id'	=> 'home-project-desc',
+				'type'	=> 'text',
+				'title' => esc_html__('Project Description', 'lmhoang'),
+				'default'	=> 'Project Description',
+			),
+			array(
+				'type'	=> 'section',
+				'title' => esc_html__('Section Footer Option', 'lmhoang'),
+				'indent' => true
+			),
+			array(
+				'id'	=> 'home-footer',
+				'type'	=> 'switch',
+				'title' => esc_html__('Section Footer', 'lmhoang'),
+				'subtitle' => esc_html__('On | Off Section Footer', 'lmhoang'),
+				'default'	=> false,
+			),
 		),
     );
     Redux::set_section( $opt_name, $section );
 /* End Home SECTIONS */
-
-/* Videos SECTIONS */
-    $section = array(
-      'title' => __( 'Video Page', 'lmhoang' ),
-      'id'    => 'video',
-      'icon'  => 'el el-youtube',
-		'fields' => array(
-			array(
-				'id'	=> 'video-youtube',
-				'type'	=> 'switch',
-				'title' => esc_html__('Video Youtube', 'lmhoang'),
-				'subtitle' => esc_html__('On | Off Section Video Youtube', 'lmhoang'),
-				'default'	=> true,
-			),
-			array(
-				'id'	=> 'video-youtube-link',
-				'type'	=> 'multi_text',
-				'title' => esc_html__('Link Video Youtube', 'lmhoang'),
-				'subtitle' => __('Ex: <br> https://www.youtube.com/watch?v=xxx...xxx <br> or https://youtu.be/xxx...xxx'),
-			),
-		),
-    );
-    Redux::set_section( $opt_name, $section );
-/* End Videos SECTIONS */

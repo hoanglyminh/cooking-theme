@@ -25,9 +25,14 @@
                                 <span><a href="tel:+<?php echo (!empty($lmh_opt['phone']) ? $lmh_opt['phone'] : '84707619481');?>">
                                 <?php echo (!empty($lmh_opt['phone']) ? $lmh_opt['phone'] : '84707619481');?></a></span>
                             </li>
+                            <li class="">
+                                <i class="fas fa-envelope"></i>
+                                <span><a href="mailto:<?php echo (!empty($lmh_opt['email']) ? $lmh_opt['email'] : 'hoanglyminh@gmail.com');?>">
+                                <?php echo (!empty($lmh_opt['email']) ? $lmh_opt['email'] : 'hoanglyminh@gmail.com');?></a></span>
+                            </li>
                         </ul>
                         <div class="footer-botm mt-3">
-                            <h6><?php echo __('Open Hours:', 'lmhoang' )?></h6>
+                            <h6><i class="fas fa-clock"></i> <?php echo __( !empty($lmh_opt['open-hours-title']) ? $lmh_opt['open-hours-title'] : 'Open Hours:', 'lmhoang' )?></h6>
                             <?php if ( !empty($lmh_opt['open-hours']) ) {?> 
                                 <?php echo $lmh_opt['open-hours'];?>
                             <?php } else { ?>

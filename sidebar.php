@@ -30,7 +30,7 @@
                             
                             <div class="content-blog">
                                 <h6 class="text-left-inner-9"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-                                <span class="sub-inner-text-9"><?php the_date(); ?> <?php the_time(); ?></span>
+                                <span class="sub-inner-text-9"><?php the_time('d/m/Y H:i:s'); ?></span>
                             </div>
                         </div>
                     <?php } ?>
@@ -40,12 +40,13 @@
         }
     ?>
 
-    <aside class="categories left-aside mb-4">
-        <h6 class="heading-small-text-9">Advertisement</h6>
-        <img src="<?php bloginfo( 'template_url' ) ?>/assets/images/about.jpg" class="img-fluid radius-image">
-    </aside>
-
     <!-- tags blog 
+
+        <aside class="categories left-aside mb-4">
+            <h6 class="heading-small-text-9">Advertisement</h6>
+            <img src="<?php bloginfo( 'template_url' ) ?>/assets/images/about.jpg" class="img-fluid radius-image">
+        </aside>
+
         <aside class="tags-block left-aside mt-5">
             <h6 class="heading-small-text-9">Tags</h6>
             <a href="blog-single.html" class="">Cooking</a>

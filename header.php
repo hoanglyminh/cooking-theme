@@ -25,8 +25,13 @@
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
+
                 <a class="navbar-brand" href="<?php bloginfo('url') ?>">
-                    NoiTro <i class="fas fa-bread-slice ms-1"></i>
+                    <?php if( empty($lmh_opt['logo']['thumbnail']) ){ ?>
+                        <?php bloginfo("name"); ?>
+                    <?php } else { ?>
+                        <img src ="<?php echo esc_url($lmh_opt['logo']['thumbnail']); ?>" height="60px"> <?php bloginfo("name"); ?>
+                    <?php  } ?>
                 </a>
 
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"

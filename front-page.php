@@ -1,35 +1,50 @@
+<?php global $lmh_opt; ?>
+
 <?php get_header(); ?>
 
-    <!-- banner section -->
-        <?php require( THEME_DIR . "/section/banner.php"); ?>
-    <!-- //banner section -->
+<!-- banner section -->
+    <?php require( THEME_DIR . "/section/banner.php"); ?>
+<!-- //banner section -->
 
-    <!-- about section -->
-        <?php // require( THEME_DIR . "/section/about.php"); ?>
-    <!-- //about section -->
+    <?php
+        $layout = $lmh_opt['homepage-blocks']['enabled'];
+        if ( $layout ): 
+            foreach ( $layout as $key => $value ) {
+                switch($key) {
+                    case 'about': 
+                        if( file_exists(THEME_DIR . "/section/about.php") ) require( THEME_DIR . "/section/about.php");
+                    break;
 
-    <!-- courses section -->
-        <?php require( THEME_DIR . "/section/courses.php"); ?>
-    <!-- //courses section -->
+                    case 'video': 
+                        if( file_exists(THEME_DIR . "/section/video.php") ) require( THEME_DIR . "/section/video.php");
+                    break;
 
-    <!-- why section -->
-        <?php // require( THEME_DIR . "/section/why.php"); ?>
-    <!-- //why section -->
+                    case 'blog': 
+                        if( file_exists(THEME_DIR . "/section/blog.php") ) require( THEME_DIR . "/section/blog.php");
+                    break;
 
-    <!-- team section -->
-        <?php // require( THEME_DIR . "/section/team.php"); ?>
-    <!-- //team section -->
+                    case 'why': 
+                        if( file_exists(THEME_DIR . "/section/why.php") ) require( THEME_DIR . "/section/why.php");
+                    break;
 
-    <!-- content block1 -->
-        <?php // require( THEME_DIR . "/section/content.php"); ?>
-    <!-- //content block1 -->
+                    case 'team': 
+                        if( file_exists(THEME_DIR . "/section/team.php") ) require( THEME_DIR . "/section/team.php");
+                    break;
 
-    <!-- blog section -->
-        <?php require( THEME_DIR . "/section/blog.php"); ?>
-    <!-- //blog section -->
+                    case 'project':
+                        if( file_exists(THEME_DIR . "/section/project.php") ) require( THEME_DIR . "/section/project.php");
+                    break;
 
-    <!-- instagram -->
-        <?php require( THEME_DIR . "/section/instagram.php"); ?>
-    <!-- //instagram  -->
+                    case 'content': 
+                        if( file_exists(THEME_DIR . "/section/project.php") ) require( THEME_DIR . "/section/content.php");
+                    break;
+                }
+            }
+        endif;
+    ?>
+
+    <!-- footer -->
+        <?php require( THEME_DIR . "/section/footer.php"); ?>
+    <!-- //footer  -->
 
 <?php get_footer() ?>
