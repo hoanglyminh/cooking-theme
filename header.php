@@ -11,11 +11,38 @@
   
     <?php wp_head() ?>
 
+    <style>
+        :root {
+            --primary-color: #f50537;
+            --primary-dark: #00c16e;
+            --bg-color: <?php echo ($lmh_opt['background-color'] ?? "#fff"); ?>;
+            --heading-color: <?php echo ($lmh_opt['title-color'] ?? "#060606");?>;
+            --font-color: <?php echo ($lmh_opt['text-color'] ?? "#707070");?>;
+            --border-radius: 8px;
+            --border-radius-full: 30px;
+            --border-color-light: #eee;
+            --iframe-filter: grayscale(0%);
+            --bg-grey: #f4f4f4;
+            --bg-lightgrey: #F8F9FA;
+            --layer: rgb(0 0 0 / 40%);
+            --layer-light: rgb(0 0 0 / 25%);
+            --box-shadow: 0 1rem 3rem #f5f3f3;
+            --footer-bg: #060500;
+            --footer-bglight: #0e0e0e;
+            --banner-layer: linear-gradient(to right, rgb(0 0 0 / 42%) 0%, transparent 100%);
+            --white-color: #fff;
+            --disable-color: #d8d6d6;
+        }
+    </style>
+
     <link rel="stylesheet" href="<?php bloginfo( 'template_url' ) ?>/assets/css/style-liberty.css?v=<?php echo (time());?>">
+    <link rel="stylesheet" href="<?php bloginfo( 'template_url' ) ?>/assets/css/style-gallery.css?v=<?php echo (time());?>">
+    <link rel="stylesheet" href="<?php bloginfo( 'template_url' ) ?>/assets/vendor/lightbox/css/lightbox.css">
     <link rel="stylesheet" href="<?php bloginfo( 'template_url' ) ?>/style.css?v=<?php echo (time());?>">
 
     <script src="<?php bloginfo( 'template_url' ) ?>/assets/js/jquery-3.3.1.min.js"></script>
-
+    <script src="<?php bloginfo( 'template_url' ) ?>/assets/vendor/lightbox/js/lightbox.js"></script>
+    
 </head>
 
 <body <?php body_class(); ?>>

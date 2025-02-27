@@ -6,8 +6,7 @@
     <?php require( THEME_DIR . "/section/banner.php"); ?>
 <!-- //banner section -->
 
-    <?php
-        $layout = $lmh_opt['homepage-blocks']['enabled'];
+    <?php $layout = $lmh_opt['homepage-blocks']['enabled'];
         if ( $layout ): 
             foreach ( $layout as $key => $value ) {
                 switch($key) {
@@ -43,8 +42,8 @@
         endif;
     ?>
 
-    <!-- footer -->
-        <?php require( THEME_DIR . "/section/footer.php"); ?>
-    <!-- //footer  -->
+<!-- footer -->
+    <?php require( THEME_DIR . "/section/footer.php"); ?>
+<!-- //footer  -->
 
 <?php get_footer() ?>

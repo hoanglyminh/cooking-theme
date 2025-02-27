@@ -42,3 +42,11 @@ figcaption, figcaption.wp-element-caption {
 .wp-block-table td, .wp-block-table th {
     padding: 5px 10px !important;
 }
+
+.wp-block-image .alignleft {
+    margin: .5em 1.5em .5em 1em;
+}
+
+.wp-block-image .alignright {
+    margin: .5em 1em .5em 1.5em;
+}

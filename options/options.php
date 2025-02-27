@@ -157,21 +157,19 @@ if ( ! isset( $args['global_variable'] ) || false !== $args['global_variable'] )
 	} else {
 		$v = str_replace( '-', '_', $args['opt_name'] );
 	}
-	$args['intro_text'] = '<p>' . sprintf( __( 'Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: %1$s', 'lmhoang' ) . '</p>', '<strong>' . $v . '</strong>' );
+	$args['intro_text'] = '<p>Hello <strong>Guest</strong>!</p>';
 } else {
 	$args['intro_text'] = '<p>' . esc_html__( 'This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.', 'lmhoang' ) . '</p>';
 }
 
-$args['footer_text'] = '<p>' . esc_html__( 'This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.', 'lmhoang' ) . '</p>';
+$args['footer_text'] = '<p>' . esc_html__( 'Trang quản lý giao diện. Vui lòng sao lưu các cài đặt trước khi thực hiện mới ', 'lmhoang' ) . '<strong>Import / Export => Export File</strong></p>';
 
 Redux::set_args( $opt_name, $args );
 
 $kses_exceptions = array(
-	'a'      => array(
-		'href' => array(),
-	),
-	'strong' => array(),
-	'br'     => array(),
+	'a'      => array( 'href' => array( ), ),
+	'strong' => array( ),
+	'br'     => array( ),
 );
 
 /* General SECTIONS */
@@ -184,6 +182,7 @@ $kses_exceptions = array(
 			array(
                 'id'	=> 'favicon',
                 'type'	=> 'media',
+				'url'      => false,
 				'width'	=> 30,
                 'title' => esc_html__( 'Your Favicon', 'lmhoang' ),
 				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 100px x 100px', 'lmhoang' ),
@@ -192,16 +191,10 @@ $kses_exceptions = array(
             array(
                 'id'		=> 'logo',
                 'type'		=> 'media',
+				'url'      => false,
 				'height'	=> 50,
 				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 300px x 300px', 'lmhoang' ),
                 'title'		=> esc_html__( 'Your Logo', 'lmhoang' ),
-            ),
-			array(
-                'id'		=> 'image_default',
-                'type'		=> 'media',
-				'height'	=> 50,
-				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 1.920 x 1.080 px', 'lmhoang' ),
-                'title'		=> esc_html__( 'Your Image Default', 'lmhoang' ),
             ),
 			array(
 				'id'       => 'sologan',
@@ -238,14 +231,57 @@ $kses_exceptions = array(
                 'id'		=> 'open-hours',
                 'type'		=> 'textarea',
                 'title'		=> esc_html__( 'Open Hours', 'lmhoang' ),
-				'subtitle'	=> esc_html__( 'You can use html tag with class css bootstrap', 'lmhoang' ),
+				'subtitle'	=> esc_html__( 'You can use html tag with Bootstrap v5.0.1', 'lmhoang' ),
 				'default'	=> '<p class="mt-2"><span>Mon - Sat</span>: 9Am - 6Pm</p><p> <span>Sunday</span>: CLOSED</p>',
             ),
         ),
     );
     Redux::set_section( $opt_name, $section );
+/* End General SECTIONS */
 
-/* General SECTIONS */
+/* Format SECTIONS */
+	$section = [
+		'title'  => esc_html__( 'Format', 'lmhoang' ),
+		'id'     => 'format',
+		'desc'   => esc_html__( 'Format Font - Color on Website', 'lmhoang'),
+		'icon'   => 'el el-font',
+		"fields" => [
+			array(
+				'id'       => 'background-color',
+				'type'     => 'color',
+				'title'    => esc_html__('Body Background Color', 'lmhoang'), 
+				'subtitle' => esc_html__('Pick a background color for the theme (default: #FFF).', 'lmhoang'),
+				'default'  => '#FFFFFF',
+				'validate' => 'color',
+			),
+			array(
+				'id'       => 'title-color',
+				'type'     => 'color',
+				'title'    => esc_html__('Title Color', 'lmhoang'), 
+				'subtitle' => esc_html__('Pick a title color for the theme (default: #060606).', 'lmhoang'),
+				'default'  => '#060606',
+				'validate' => 'color',
+			),
+			array(
+				'id'       => 'text-color',
+				'type'     => 'color',
+				'title'    => esc_html__('Text Color', 'lmhoang'), 
+				'subtitle' => esc_html__('Pick a text color for the theme (default: #707070).', 'lmhoang'),
+				'default'  => '#707070',
+				'validate' => 'color',
+			),
+			array(
+                'id'		=> 'image_default',
+                'type'		=> 'media',
+				'url'      => false,
+				'height'	=> 50,
+				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 1.920 x 1.080 px', 'lmhoang' ),
+                'title'		=> esc_html__( 'Image Default', 'lmhoang' ),
+            ),
+		]
+	];
+	Redux::set_section( $opt_name, $section );
+/* End Format SECTIONS */
 
 /* Slides SECTIONS */
     $section = array(
@@ -282,6 +318,7 @@ $kses_exceptions = array(
 						'blog' => 'Section Blog',
 						'video'   => 'Section Video',
 						'project'   => 'Section Project',
+						'team'	=> 'Section Teams',
 					),
 				),
 			),
@@ -297,6 +334,49 @@ $kses_exceptions = array(
 				'subtitle' => esc_html__('On | Off Section About', 'lmhoang'),
 				'default'	=> true,
 			),
+			array(
+				'id'	=> 'home-about-title',
+				'type'	=> 'text',
+				'title' => esc_html__('About Title', 'lmhoang'),
+				'default'	=> 'Learn how to cook from your house',
+			),
+			array(
+				'id'	=> 'home-about-desc',
+				'type'	=> 'textarea',
+				'title' => esc_html__('About Description', 'lmhoang'),
+				'subtitle' => esc_html__('You can use html tag with Bootstrap v5.0.1', 'lmhoang'),
+				'default'	=> '<p class="mt-3">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur. Mumquam eius modi tempora incidunt ut labore et.</p>
+								<div class="row mt-lg-5 mt-4">
+									<div class="col-sm-6 grids_info">
+										<i class="fas fa-utensils"></i>
+										<div class="detail mt-sm-4 mt-3">
+										<h4>Easy Manual</h4>
+										<p>Sed ut perspiciatis unde omnis iste natus.</p>
+									</div>
+								</div>
+								<div class="col-sm-6 grids_info mt-sm-0 mt-4">
+									<i class="fas fa-bread-slice"></i>
+										<div class="detail mt-sm-4 mt-3">
+											<h4> For Everyone</h4>
+											<p>Sed ut perspiciatis unde omnis iste natus.</p>
+										</div>
+									</div>
+								</div>',
+			),
+			array(
+                'id'		=> 'home-about-image-right',
+                'type'		=> 'media',
+				'height'	=> 50,
+				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 640 x 800 px', 'lmhoang' ),
+                'title'		=> esc_html__( 'Your Image About Right', 'lmhoang' ),
+            ),
+			array(
+				'id'		=> 'home-about-image-left',
+                'type'		=> 'media',
+				'height'	=> 50,
+				'subtitle'	=> esc_html__( 'You can select an image in media or upload an image with size 640 x 959 px', 'lmhoang' ),
+                'title'		=> esc_html__( 'Your Image About Left', 'lmhoang' ),
+            ),
 			array(
 				'id'	=> 'home-about-select',
 				'type'	=> 'select',
@@ -329,6 +409,19 @@ $kses_exceptions = array(
 				'default'	=> 'Latest News',
 			),
 			array(
+				'id'	=> 'home-blog-num',
+				'type'	=> 'select',
+				'title' => esc_html__('Number post', 'lmhoang'),
+				'subtitle' => esc_html__('Number post show', 'lmhoang'),
+				'default'	=> 6,
+				'options'  => array(
+					'6' => '6',
+					'8' => '8',
+					'12' => '12',
+					'16' => '16'
+				),
+			),
+			array(
 				'type'	=> 'section',
 				'title' => esc_html__('Section Video Option', 'lmhoang'),
 				'indent' => true
@@ -352,30 +445,60 @@ $kses_exceptions = array(
 				'title' => esc_html__('Video Description', 'lmhoang'),
 				'default'	=> 'Our Reviews',
 			),
-			array(
-				'type'	=> 'section',
-				'title' => esc_html__('Section Project Option', 'lmhoang'),
-				'indent' => true
-			),
-			array(
-				'id'	=> 'home-project',
-				'type'	=> 'switch',
-				'title' => esc_html__('Section Project', 'lmhoang'),
-				'subtitle' => esc_html__('On | Off Section Project', 'lmhoang'),
-				'default'	=> false,
-			),
-			array(
-				'id'	=> 'home-project-title',
-				'type'	=> 'text',
-				'title' => esc_html__('Project Title', 'lmhoang'),
-				'default'	=> 'Project Title',
-			),
-			array(
-				'id'	=> 'home-project-desc',
-				'type'	=> 'text',
-				'title' => esc_html__('Project Description', 'lmhoang'),
-				'default'	=> 'Project Description',
-			),
+			
+			// Section Project Option
+				array(
+					'type'	=> 'section',
+					'title' => esc_html__('Section Project Option', 'lmhoang'),
+					'indent' => true
+				),
+				array(
+					'id'	=> 'home-project',
+					'type'	=> 'switch',
+					'title' => esc_html__('Section Project', 'lmhoang'),
+					'subtitle' => esc_html__('On | Off Section Project', 'lmhoang'),
+					'default'	=> false,
+				),
+				array(
+					'id'	=> 'home-project-title',
+					'type'	=> 'text',
+					'title' => esc_html__('Project Title', 'lmhoang'),
+					'default'	=> 'Project Title',
+				),
+				array(
+					'id'	=> 'home-project-desc',
+					'type'	=> 'text',
+					'title' => esc_html__('Project Description', 'lmhoang'),
+					'default'	=> 'Project Description',
+				),
+			// End Section Project Option
+
+			// Section Team Option
+				array(
+					'type'	=> 'section',
+					'title' => esc_html__('Section Team Option', 'lmhoang'),
+					'indent' => true
+				),
+				array(
+					'id'	=> 'home-team',
+					'type'	=> 'switch',
+					'title' => esc_html__('Section Team', 'lmhoang'),
+					'subtitle' => esc_html__('On | Off Section Team', 'lmhoang'),
+					'default'	=> false,
+				),
+				array(
+					'id'	=> 'home-team-title',
+					'type'	=> 'text',
+					'title' => esc_html__('Team Title', 'lmhoang'),
+					'default'	=> 'Team Title',
+				),
+				array(
+					'id'	=> 'home-team-desc',
+					'type'	=> 'text',
+					'title' => esc_html__('Team Description', 'lmhoang'),
+					'default'	=> 'Team Description',
+				),
+			// End Section Team Option
 			array(
 				'type'	=> 'section',
 				'title' => esc_html__('Section Footer Option', 'lmhoang'),

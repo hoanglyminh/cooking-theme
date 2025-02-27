@@ -1,0 +1,42 @@
+
+.column-gallery-curved {
+    height: 200px;
+    position: relative;
+    transform: translate(15%, 50%);
+}
+
+.column-gallery-curved img {
+    height: 150px;
+    position: absolute;
+    left: 0;
+    offset-path: path('m 0 50 q 50-30 150-30 t 150 30 150 0 150-30 150 30');
+    box-shadow: 1px 1px 3px #0008;
+    transition: transform .4s ease-out, offset-path .4s cubic-bezier(.77,-1.17,.75,.84),box-shadow .3s, z-index .3s;
+    z-index: 0;
+}
+
+.column-gallery-curved img:hover {
+    transform: scale(3);
+    /* on hover, the path gets a bit shorter & flattened & shifted to left/bottom a bit for nicer movement */
+    offset-path: path('m 5 65 q 45-0 90-0 t 90 0 90 0 90-0 90 0');
+    box-shadow: 3px 4px 10px #0006;
+    /* ensures that image gets on top of stack at the start of "popping" animation
+        and gets back at the end of getting back. With smaller value, 2 different transitions would be needed */
+    z-index: 999;
+}
+  
+
+/* 4 images */
+.column-gallery-curved  img.effect-1 {
+    offset-distance: 10%;
+}
+.column-gallery-curved img.effect-2 {
+    offset-distance: 35%;
+}
+.column-gallery-curved img.effect-3 {
+    offset-distance: 65%;
+}
+.column-gallery-curved img.effect-4 {
+    offset-distance: 90%;
+}
+

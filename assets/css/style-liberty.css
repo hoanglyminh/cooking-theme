@@ -11754,27 +11754,6 @@ fieldset:disabled .btn {
 /* //bootstrap */
 
 /* css style */
-:root {
-  --primary-color: #f50537;
-  --primary-dark: #00c16e;
-  --font-color: #707070;
-  --bg-color: #fff;
-  --heading-color: #060606;
-  --border-radius: 8px;
-  --border-radius-full: 30px;
-  --border-color-light: #eee;
-  --iframe-filter: grayscale(0%);
-  --bg-grey: #f4f4f4;
-  --bg-lightgrey: #F8F9FA;
-  --layer: rgb(0 0 0 / 40%);
-  --layer-light: rgb(0 0 0 / 25%);
-  --box-shadow: 0 1rem 3rem #f5f3f3;
-  --footer-bg: #060500;
-  --footer-bglight: #0e0e0e;
-  --banner-layer: linear-gradient(to right, rgb(0 0 0 / 42%) 0%, transparent 100%);
-  --white-color: #fff;
-  --disable-color: #d8d6d6;
-}
 
 [data-theme="dark"] {
   --primary-color: #ff4c4c;
