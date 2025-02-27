@@ -10,6 +10,7 @@
     ?>
 
     <?php if ( $latest_projects ) { ?>
+
         <div class="w3l-team-grids-sec py-5" id="project">
             <div class="container pb-lg-5 pb-md-4 pb-2">
                 <h5 class="sub-title text-center"><?php echo $lmh_opt['home-project-desc'];?></h5>
@@ -17,7 +18,7 @@
                 <div class="row cards">
                     <?php foreach ( $latest_projects as $post ) :  setup_postdata( $post ); ?>
                         <div class="col-lg-4 col-md-6 mt-5">
-                            <a href="<?php echo get_image_url_id(get_the_ID());?>" class="card" data-lightbox="<?php echo $lmh_opt['home-project-desc'];?>"> 
+                            <a href="<?php echo get_image_url_id(get_the_ID());?>" class="card" data-lightbox="<?php echo $lmh_opt['home-project-desc'];?>" data-title="<?php the_title(); ?>"> 
                                 <?php if ( has_post_thumbnail() ) { ?>
                                     <img src="<?php echo get_image_url_id(get_the_ID());?>" class="card__image radius-image" alt="<?php the_title(); ?>" style="height: 320px;" />
                                 <?php } else { ?>
@@ -41,6 +42,11 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
+                
+                <p class="text-center">
+                    <a href="<?php echo get_post_type_archive_link( 'project' ); ?>" class="btn btn-style mt-4"><?php _e("Read More","lmhoang");?></a>
+                </p>
+
             </div>
         </div>
     <?php wp_reset_postdata(); } ?>

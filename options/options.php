@@ -320,6 +320,7 @@ $kses_exceptions = array(
 						'project'   => 'Section Project',
 						'team'	=> 'Section Teams',
 					),
+					'disable' => [],
 				),
 			),
 			array(
