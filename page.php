@@ -1,6 +1,10 @@
+<?php global $lmh_opt; ?>
+
 <?php get_header(); ?>
 
-<section class="inner-banner py-5">
+<section class="inner-banner py-5"
+    <?php if( !empty($lmh_opt["image_default"]['url']) ) { echo 'style="background-image:url(\'' . esc_url($lmh_opt["image_default"]['url']) . '\')"'; }  ?>
+>
     <div class="w3l-breadcrumb py-lg-5">
         <div class="container pt-5 pb-sm-4 pb-2">
             <h4 class="inner-text-title font-weight-bold pt-5"><?php the_title()?> </h4>

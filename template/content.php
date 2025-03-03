@@ -1,3 +1,5 @@
+
+<?php global $lmh_opt; ?>
 <div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-5">
     <div class="card img blog-info">
         <div class="card-body img">
@@ -6,7 +8,10 @@
                     <?php if ( has_post_thumbnail() ) { ?>                
                         <img src="<?php echo get_image_url_id(get_the_ID());?>" class="img-fluid radius-image">                                
                     <?php } else { ?>
-                        <img src="<?php echo esc_url(empty($lmh_opt["image_default"]['url']) ? (THEME_URL . "/assets/images/no-image.jpg") : $lmh_opt["image_default"]['url']); ?>" class="img-fluid radius-image">
+                        <img src="<?php echo esc_url(empty($lmh_opt["image_default"]['url']) 
+                                    ? (THEME_URL . "/assets/images/no-image.jpg") 
+                                    : $lmh_opt["image_default"]['url']); ?>" 
+                                class="img-fluid radius-image">
                     <?php } ?>
                 </a>
             </figure>
