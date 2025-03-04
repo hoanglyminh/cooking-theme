@@ -1,6 +1,6 @@
 Frist Install Theme:
 
-Create Folder core in theme folder
+Create Folder with name "core_lmh" in theme folder.
 
 Download Core Layout Theme: [https://github.com/hoanglyminh/core-theme-wp-product]
 
