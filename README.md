@@ -2,10 +2,7 @@ Frist Install Theme:
 
 Create Folder core in theme folder
 
-Download Core Layout Theme:
-```
-https://github.com/hoanglyminh/core-theme-wp-product
-```
+Download Core Layout Theme: [https://github.com/hoanglyminh/core-theme-wp-product]
 
 Includue file init.php in file funtions.php:
 
@@ -14,8 +11,8 @@ global $sieuthiweb, $lmh_themes;
 
 define('THEME_URL', get_template_directory_uri() );
 define('THEME_DIR', get_template_directory() );
-define('CORE' , THEME_DIR . '/core' );
-define( "CORE_URL" , THEME_URL . "/core" );
+define('CORE' , THEME_DIR . '/core_lmh' );
+define( "CORE_URL" , THEME_URL . "/core_lmh" );
 
 if( file_exists( CORE . '/store_info.php' ) ) { 
 	require_once( CORE . '/store_info.php' );
