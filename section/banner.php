@@ -1,7 +1,6 @@
 <?php global $lmh_opt; $slides = []; ?>
 
 <?php
-
     if( empty($lmh_opt['slides']) ){
         $slides['image'] = [
             get_bloginfo( 'template_url' ). "/assets/images/banner1.jpg",
@@ -13,9 +12,7 @@
         foreach( $lmh_opt['slides'] as $val ){
             $slides['image'][] = $val['image'];
         }
-    }
-
-   
+    }   
 ?>
 <section class="w3l-main-slider" id="home">
     <div class="banner-content">

@@ -1,6 +1,15 @@
 
 <?php if( isset($lmh_opt['home-footer']) && $lmh_opt['home-footer'] ){ ?>
-    <?php $istagrams = new WP_Query($args = array('post_type'=> 'post','posts_per_page' => 8, 'orderby'=> 'rand')); ?>
+
+    <?php
+        $args = array(
+            'post_type' => empty($lmh_opt['home-footer-post-type']) ? 'post' : sanitize_key($lmh_opt['home-footer-post-type']),
+            'posts_per_page' => 8, 
+            'orderby'=> 'rand',
+        );
+        $istagrams = new WP_Query($args); 
+    ?>
+
     <?php if ($istagrams->have_posts()) : ?>
         <div class="projects" id="special">
             <div class="projects-grids">

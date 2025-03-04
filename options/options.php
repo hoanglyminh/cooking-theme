@@ -512,7 +512,15 @@ $kses_exceptions = array(
 				'subtitle' => esc_html__('On | Off Section Footer', 'lmhoang'),
 				'default'	=> false,
 			),
+			array(
+				'id'	=> 'home-footer-post-type',
+				'type'	=> 'select',
+            	'title' => esc_html__('Select Post Type', 'lmhoang'),
+				'subtitle' => esc_html__('Select the post type to display', 'lmhoang'),
+				'data' => 'post_types',
+			),
 		),
+		
     );
     Redux::set_section( $opt_name, $section );
 /* End Home SECTIONS */
