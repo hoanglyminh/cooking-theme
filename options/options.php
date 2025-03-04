@@ -22,10 +22,10 @@ $args = array(
 	'display_version'           => $theme->get( 'Version' ),
 
 	// Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only).
-	'menu_type'                 => 'menu',
+	'menu_type'                 => 'submenu',
 
 	// Show the sections below the admin menu item or not.
-	'allow_sub_menu'            => true,
+	'allow_sub_menu'            => false,
 
 	'menu_title'                => esc_html__( 'Themes Options', 'lmhoang' ),
 	'page_title'                => esc_html__( 'Themes Options', 'lmhoang' ),
