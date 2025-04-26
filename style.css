@@ -12,12 +12,12 @@ Textdomain: lmhoang
     display: none;
 }
 
-.blog-info figure.img-thumbnails {
+.blog-info div.img-thumbnails {
     height: 230px;
     overflow: hidden;
     margin: 0px;
 }
-.blog-info figure.img-thumbnails img {
+.blog-info div.img-thumbnails img {
     width:  100%;
 }
 .blog-des .lmh-title {
