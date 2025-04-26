@@ -22,7 +22,7 @@
                     <div class="banner-info">
                         <h5><?php bloginfo('name') ?></h5>
                         <h3 class="mt-2 mb-5"><?php echo esc_html($lmh_opt['sologan']??"");?></h3>
-                        <p><?php bloginfo('description') ?></p>
+                        <p><?php echo esc_html($lmh_opt['sologan_desc'] ?? get_bloginfo('description'));?> </p>
                         <a href="" class="btn btn-style mt-4"><?php echo __('Read More' ,'lmhoang')?></a>
                     </div>
                 </div>

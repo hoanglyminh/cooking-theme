@@ -203,6 +203,12 @@ $kses_exceptions = array(
 				'default'	=> 'Ai cũng có thể vào bếp',
 			),
 			array(
+				'id'       => 'sologan_desc',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Your Sologan Description', 'lmhoang' ),
+				'default'	=> '',
+			),
+			array(
                 'id'       => 'email',
                 'type'     => 'text',
                 'title'    => esc_html__( 'Your Email', 'lmhoang' ),
@@ -384,6 +390,12 @@ $kses_exceptions = array(
             	'title' => esc_html__('Select Page About', 'lmhoang'),
 				'subtitle' => esc_html__('Select Page show in Section About', 'lmhoang'),
 				'data' => 'pages',
+			),
+			array(
+				'id'	=> 'home-about-desc-footer',
+				'type'	=> 'textarea',
+				'title' => esc_html__('About Description Footer', 'lmhoang'),
+				'default' => '',
 			),
 			array(
 				'type'	=> 'section',

@@ -5,8 +5,8 @@
             <div class="container pt-lg-5 pt-md-4 pt-2 pb-lg-4 pb-2">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
-                        <h3><?php echo __('About Us:', 'lmhoang' )?></h3>
-                        <p><?php bloginfo('name');?>. <?php bloginfo('description'); ?></p>
+                        <h3><?php echo ($lmh_opt['home-about-title'] ?? __('About Us:', 'lmhoang')); ?></h3>
+                        <p><?php echo ($lmh_opt['home-about-desc-footer'] ?? get_bloginfo('name') . " " . get_bloginfo('description') ); ?></p>
                         <div class="columns-2 mt-4">
                             <ul class="social">
                                 <li><a href="https://www.facebook.com/noitrotaigia" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
