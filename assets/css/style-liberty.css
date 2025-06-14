@@ -11765,6 +11765,7 @@ fieldset:disabled .btn {
   --iframe-filter: grayscale(100%);
   --bg-grey: #0e1210;
   --bg-lightgrey: #131917;
+  --bs-dark: #fff;
   --layer: rgb(0 0 0 / 52%);
   --layer-light: rgb(0 0 0 / 45%);
   --box-shadow: 0 1rem 3rem rgb(10 14 13);
