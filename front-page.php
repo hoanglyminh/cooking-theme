@@ -3,10 +3,11 @@
 <?php get_header(); ?>
 
 <!-- banner section -->
-    <?php require( THEME_DIR . "/section/banner.php"); ?>
+    <?php require( THEME_DIR . "/section/slides.php"); ?>
 <!-- //banner section -->
 
-    <?php $layout = $lmh_opt['homepage-blocks']['enabled'];
+    <?php $layout = $lmh_opt['home-blocks']['enabled'] ?? false;
+
         if ( $layout ): 
             foreach ( $layout as $key => $value ) {
                 switch($key) {
@@ -18,8 +19,8 @@
                         if( file_exists(THEME_DIR . "/section/video.php") ) require( THEME_DIR . "/section/video.php");
                     break;
 
-                    case 'blog': 
-                        if( file_exists(THEME_DIR . "/section/blog.php") ) require( THEME_DIR . "/section/blog.php");
+                    case 'blogs':
+                        if( file_exists(THEME_DIR . "/section/blogs.php") ) require( THEME_DIR . "/section/blogs.php");
                     break;
 
                     case 'why': 
@@ -34,16 +35,16 @@
                         if( file_exists(THEME_DIR . "/section/project.php") ) require( THEME_DIR . "/section/project.php");
                     break;
 
-                    case 'content': 
-                        if( file_exists(THEME_DIR . "/section/project.php") ) require( THEME_DIR . "/section/content.php");
+                    case 'thank': 
+                        if( file_exists(THEME_DIR . "/section/thank.php") ) require( THEME_DIR . "/section/thank.php");
                     break;
                 }
             }
         endif;
     ?>
 
-<!-- footer -->
+    <?php require( THEME_DIR . "/section/ads_footer.php"); ?>
+
     <?php require( THEME_DIR . "/section/footer.php"); ?>
-<!-- //footer  -->
 
 <?php get_footer() ?>

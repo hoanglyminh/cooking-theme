@@ -40,4 +40,6 @@
         </div>
     </section>
 
+    <?php require( THEME_DIR . "/section/ads_footer.php"); ?>
+
 <?php get_footer() ?>

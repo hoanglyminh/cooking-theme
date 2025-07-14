@@ -25,7 +25,7 @@
                     <h6 class="heading-small-text-9 mb-3"><?php echo __("Most View" , "lmhoang"); ?></h6>
                     <?php while ( $mostviews->have_posts() ) { $mostviews->the_post(); ?>
                         <div class="mt-2 d-flex">
-                           
+                            
                             <img class="img-fluid" src="<?php echo ( get_image_url_id( get_the_ID()) )?>" alt="<?php the_title(); ?>" >
                             
                             <div class="content-blog">

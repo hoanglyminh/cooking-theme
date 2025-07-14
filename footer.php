@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="copy-section text-center py-4">
-            <p class="copy-text py-1">&copy; 2010 - <?php echo date('Y');?>. All rights reserved.</p>
+            <p class="copy-text py-1">&copy; 2010 - <?php echo date('Y');?> - <?php echo bloginfo("name"); ?>. All rights reserved.</p>
         </div>
     </footer>
 

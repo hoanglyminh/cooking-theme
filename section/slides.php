@@ -14,6 +14,7 @@
         }
     }   
 ?>
+
 <section class="w3l-main-slider" id="home">
     <div class="banner-content">
         <div id="demo-1" data-zs-src='[<?php echo '"'. implode('","',$slides['image']) . '"';?>]'>

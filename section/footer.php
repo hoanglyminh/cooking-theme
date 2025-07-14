@@ -1,3 +1,4 @@
+<?php global $lmh_opt; ?>
 
 <?php if( isset($lmh_opt['home-footer']) && $lmh_opt['home-footer'] ){ ?>
 

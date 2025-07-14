@@ -1,8 +1,8 @@
 <?php global $lmh_opt; ?>
 
-<?php if( isset($lmh_opt['home-blog']) && $lmh_opt['home-blog'] ){ ?>
+<?php if( isset($lmh_opt['home-blog']) && ($lmh_opt['home-blog']) ){ ?>
     <?php if (have_posts()) : ?>
-        <section class="w3l-blog" id="blog">
+        <section class="lmh-blog" id="blog">
             <div class="container py-md-5 py-2">
                 <h5 class="sub-title text-center">
                     <?php if( isset($lmh_opt) && !empty($lmh_opt['home-blog-desc']) ){ ?> 

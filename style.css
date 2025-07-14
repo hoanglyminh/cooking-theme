@@ -8,6 +8,26 @@ Version: 1.0
 Textdomain: lmhoang
 */
 
+.lmh-bg-color {
+    background-color: var(--bg-color);
+}
+
+.lmh-heading-color {
+    color: var(--heading-color);
+}
+
+.lmh-font-color {
+    color: var(--font-color);
+}
+
+.lmh-primary-color {
+    color: var(--primary-color);
+}
+
+.lmh-primary-dark {
+    color: var(--primary-dark);
+}
+
 .hidden {
     display: none;
 }
@@ -17,9 +37,11 @@ Textdomain: lmhoang
     overflow: hidden;
     margin: 0px;
 }
+
 .blog-info div.img-thumbnails img {
     width:  100%;
 }
+
 .blog-des .lmh-title {
     height: 60px;
     overflow: hidden;
@@ -30,7 +52,7 @@ ul.breadcrumbs-custom-path {
 }
 
 ul.breadcrumbs-custom-path .current-item {
-    color: var(--primary-dark) !important;
+    color: var(--primary-color) !important;
 }
 
 figcaption, figcaption.wp-element-caption {

@@ -1,6 +1,7 @@
 
 <?php global $lmh_opt; ?>
-<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-5">
+
+<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-4">
     <div class="card img blog-info">
         <div class="card-body img">
             <div class="img-thumbnails">
