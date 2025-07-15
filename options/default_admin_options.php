@@ -309,13 +309,21 @@ $kses_exceptions = array(
 						'about' => 'About Section',
 						'why' 	=> 'Why Section',
 						'blogs' => 'Blog Section',
-						'testimonials' => "Teams Section",
+						'team' => "Teams Section",
+						'project' => "Project Section",
 						'thank' => "Thank Section",
 					),
 					'disabled' => array(
 					)
 				),
 			),
+			array(
+                'id'	=> 'image_default',
+                'type'	=> 'media',
+				'width'	=> 30,
+                'title' => esc_html( 'Image default' ),
+				'subtitle'    => 'Image size: 1680 x 900px',
+            ),
 			array(
 				'id'       => 'lmh-bg-color',
 				'type'     => 'color',
@@ -429,7 +437,7 @@ $kses_exceptions = array(
 	$section = array(
 		'title' => __( 'Section Why' ),
 		'id'    => 'why',
-		'icon'  => 'el el-signal',
+		'icon'  => 'fa fa-question',
 		'fields' => array(
 			array(
 				'id'	=> 'home-why',
@@ -596,53 +604,101 @@ $kses_exceptions = array(
 	Redux::set_section( $opt_name, $section );
 // End Blog SECTIONS
 
-// Testimonials SECTIONS
+// Teams SECTIONS
 	$section = array(
-		'title' => __( 'Section Testimonials' ),
-		'id'    => 'testimonials',
-		'icon'  => 'el el-quotes',
+		'title' => __( 'Section Teams' ),
+		'id'    => 'team',
+		'icon'  => 'fa fa-handshake',
 		'fields' => array(
 			array(
-				'id'	=> 'home-testimonials',
+				'id'	=> 'home-team',
 				'type'	=> 'switch',
 				'title' => esc_html('Section Testimonials'),
 				'subtitle' => esc_html('On | Off Section Testimonials'),
 				'default'	=> true,
 			),
 			array(
-				'id'	=> 'home-testimonials-title',
+				'id'	=> 'home-team-title',
 				'type'	=> 'text',
 				'title' => esc_html('Title'),
 				'default'	=> 'What Our Clients Say',
 			),
 			array(
-				'id'	=> 'home-testimonials-desc',
+				'id'	=> 'home-team-desc',
 				'type'	=> 'textarea',
 				'title' => esc_html('Description'),
 				'subtitle' => esc_html('Description of session Testimonials'),
 				'default'	=> "Happy Clients",
 			),
 			array(
-				'id'	=> 'home-testimonials-num',
+				'id'	=> 'home-team-num',
 				'type'	=> 'select',
 				'title' => esc_html('Number Testimonials'),
 				'subtitle' => esc_html('Number Testimonials show'),
-				'default'	=> 6,
+				'default'	=> 3,
 				'options'  => array(
+					'3' => '3',
 					'6' => '6',
+					'9' => '9',
 					'12' => '12',
-					'14' => '14',
-					'16' => '16',
+					'15' => '15',
 					'18' => '18',
-					'20' => '20',
-					'22' => '22',
+					'21' => '21',
 					'24' => '24',
 				),
 			),
 		)
 	);
 	Redux::set_section( $opt_name, $section );
-// End Testimonials SECTIONS
+// End Teams SECTIONS
+
+// Project SECTIONS
+	$section = array(
+		'title' => __( 'Section Project' ),
+		'id'    => 'project',
+		'icon'  => 'fa fa-bag-shopping',
+		'fields' => array(
+			array(
+				'id'	=> 'home-project',
+				'type'	=> 'switch',
+				'title' => esc_html('Section Project'),
+				'subtitle' => esc_html('On | Off Section Project'),
+				'default'	=> true,
+			),
+			array(
+				'id'	=> 'home-project-title',
+				'type'	=> 'text',
+				'title' => esc_html('Title'),
+				'default'	=> 'Your Project',
+			),
+			array(
+				'id'	=> 'home-project-desc',
+				'type'	=> 'textarea',
+				'title' => esc_html('Description'),
+				'subtitle' => esc_html('Description of session Project'),
+				'default'	=> "New Project",
+			),
+			array(
+				'id'	=> 'home-project-num',
+				'type'	=> 'select',
+				'title' => esc_html('Number Project'),
+				'subtitle' => esc_html('Number Project show'),
+				'default'	=> 9,
+				'options'  => array(
+					'3' => '3',
+					'6' => '6',
+					'9' => '9',
+					'12' => '12',
+					'15' => '15',
+					'18' => '18',
+					'21' => '21',
+					'24' => '24',
+				),
+			),
+		)
+	);
+	Redux::set_section( $opt_name, $section );
+// End Project SECTIONS
 
 // Thank SECTIONS 
 	$section = array(

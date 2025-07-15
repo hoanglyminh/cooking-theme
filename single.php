@@ -1,6 +1,12 @@
 <?php get_header(); ?>
 
-    <section class="inner-banner py-5" <?php if( has_post_thumbnail() ) { echo 'style="background-image:url(\'' . get_image_url_id(get_the_ID()) . '\')"'; }  ?>>
+    <section class="inner-banner py-5" 
+        <?php if( has_post_thumbnail() ) { 
+            echo 'style="background-image:url(\'' . get_image_url_id(get_the_ID()) . '\')"';
+        } elseif( ! empty($lmh_opt["image_default"]['url']) ) {
+           echo 'style="background-image:url(\'' . esc_url($lmh_opt["image_default"]['url']) . '\')"';
+        } ?>
+    >
         <div class="w3l-breadcrumb py-lg-5">
             <div class="container pt-5 pb-sm-4 pb-2">
                 <h4 class="inner-text-title font-weight-bold pt-5"><?php the_title()?> </h4>

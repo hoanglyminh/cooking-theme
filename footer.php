@@ -9,7 +9,11 @@
                         <p><?php echo ($lmh_opt['home-about-desc-footer'] ?? get_bloginfo('name') . " " . get_bloginfo('description') ); ?></p>
                         <div class="columns-2 mt-4">
                             <ul class="social">
-                                <li><a href="https://www.facebook.com/noitrotaigia" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li>
+                                    <a href="https://www.facebook.com/profile.php?id=100086125716330" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -44,7 +48,7 @@
                     </div>
 
                     <div class="col-lg-4 col-sm-12 column mt-lg-0 mt-4 ps-xl-5">
-                        <h3><?php echo __('Subscribe:', 'lmhoang' )?></h3>
+                        <h3><?php echo __('Subscribe:', 'lmhoang')?></h3>
                         <form action="#" class="subscribe d-flex" method="POST">
                             <input type="email" name="email" placeholder="Email Address" required="">
                             <button class="button-style"><span class="fa fa-paper-plane" aria-hidden="true"></span></button>

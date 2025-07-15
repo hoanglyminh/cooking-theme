@@ -10,7 +10,6 @@
     ?>
 
     <?php if ( $latest_projects ) { ?>
-
         <div class="w3l-team-grids-sec py-5" id="project">
             <div class="container pb-lg-5 pb-md-4 pb-2">
                 <h5 class="sub-title text-center"><?php echo $lmh_opt['home-project-desc'];?></h5>

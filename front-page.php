@@ -30,7 +30,7 @@
                     case 'team': 
                         if( file_exists(THEME_DIR . "/section/team.php") ) require( THEME_DIR . "/section/team.php");
                     break;
-
+                    
                     case 'project':
                         if( file_exists(THEME_DIR . "/section/project.php") ) require( THEME_DIR . "/section/project.php");
                     break;

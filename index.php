@@ -3,18 +3,12 @@
 <?php get_header() ?>
 
     <section class="inner-banner py-5"
-        <?php if( !empty($lmh_opt["image_default"]['url']) ) { echo 'style="background-image:url(\'' . esc_url($lmh_opt["image_default"]['url']) . '\')"'; }  ?>
+        <?php if( ! empty($lmh_opt["image_default"]['url']) ) { echo 'style="background-image:url(\'' . esc_url($lmh_opt["image_default"]['url']) . '\')"'; }  ?>
     >
         <div class="w3l-breadcrumb py-lg-5">
             <div class="container pt-5 pb-sm-4 pb-2">
                 <h4 class="inner-text-title font-weight-bold pt-5">
-                    <?php 
-                        if( is_single() || is_page() ) {
-                            the_title();
-                        } else if ( is_archive() ) {
-                            single_cat_title();
-                        }
-                    ?>
+                    <?php _e(apply_filters( "lmh_title_index", "Title Index" )); ?>
                 </h4>
                 <ul class="breadcrumbs-custom-path">
                     <?php if(function_exists('bcn_display')) {  bcn_display(); }?>

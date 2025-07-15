@@ -3,7 +3,7 @@
 <?php if( isset($lmh_opt['home-team']) && $lmh_opt['home-team'] ){ ?>
     <?php 
         $args = array(
-            'numberposts' => 3,
+            'numberposts' => empty( $lmh_opt['home-team-num'] ) ? 3 : $lmh_opt['home-team-num'],
             'post_type'   => 'team',
           );
         $latest_teams = get_posts( $args );
@@ -15,7 +15,7 @@
                 <h3 class="title-style text-center"><?php echo $lmh_opt['home-team-title'];?></h3>
                 <div class="row cards">
                     <?php foreach ( $latest_teams as $post ) :  setup_postdata( $post ); ?>
-                        <div class="col-lg-4 col-md-6 mt-5">
+                        <div class="col-lg-4 col-md-4 mt-5">
                             <a href="<?php the_permalink(); ?>" class="card">
                                 <?php if ( has_post_thumbnail() ) { ?>
                                     <img src="<?php echo get_image_url_id(get_the_ID());?>" class="card__image radius-image" alt="<?php the_title(); ?>" />
