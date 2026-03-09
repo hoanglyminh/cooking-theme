@@ -18718,9 +18718,9 @@ div#small-dialog iframe {
 /* movetop styling */
 #movetop {
   position: fixed;
-  bottom: 90px;
-  right: 15px;
-  z-index: 9;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9991;
   font-size: 16px;
   border: none;
   outline: none;

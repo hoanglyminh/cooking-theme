@@ -1,13 +1,14 @@
 <?php global $lmh_opt; ?>
 
 <?php if( isset($lmh_opt['home-team']) && $lmh_opt['home-team'] ){ ?>
-    <?php 
+    <?php
         $args = array(
             'numberposts' => empty( $lmh_opt['home-team-num'] ) ? 3 : $lmh_opt['home-team-num'],
             'post_type'   => 'team',
           );
         $latest_teams = get_posts( $args );
     ?>
+
     <?php if ( $latest_teams ) { ?>
         <div class="w3l-team-grids-sec py-5" id="team">
             <div class="container pb-lg-5 pb-md-4 pb-2">

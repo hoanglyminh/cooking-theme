@@ -70,7 +70,6 @@
 <body <?php body_class(); ?>>
 
 <div class="lmh_wrapper">
-    
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">

@@ -5,17 +5,28 @@
             <div class="container pt-lg-5 pt-md-4 pt-2 pb-lg-4 pb-2">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
+
                         <h3><?php echo ($lmh_opt['home-about-title'] ?? __('About Us:', 'lmhoang')); ?></h3>
+                        
                         <p><?php echo ($lmh_opt['home-about-desc-footer'] ?? get_bloginfo('name') . " " . get_bloginfo('description') ); ?></p>
-                        <div class="columns-2 mt-4">
-                            <ul class="social">
-                                <li>
-                                    <a href="https://www.facebook.com/profile.php?id=100086125716330" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        
+                        <?php if( in_array(true, array_column($lmh_opt['social-profiles'] , "enabled" )) ) { ?>
+                            <div class="columns-2 mt-4">
+                                <ul class="social">
+                                    <?php foreach( $lmh_opt['social-profiles'] as $social ) { ?>
+                                        <?php if( $social['enabled'] ){ ?>
+                                            <li>
+                                                <a target="_blank" href="<?php echo $social['url'];?>" class="social <?php echo $social['id'];?>">
+                                                    <i class="fab <?php echo $social['icon'];?>"></i>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </ul>
+                            </div>
+                        <?php } ?>
+
                     </div>
                     
                     <div class="col-lg-5 col-sm-6 column ps-xl-5 pe-lg-0 mt-lg-0 mt-4">
@@ -60,7 +71,7 @@
             </div>
         </div>
         <div class="copy-section text-center py-4">
-            <p class="copy-text py-1">&copy; 2010 - <?php echo date('Y');?> - <?php echo bloginfo("name"); ?>. All rights reserved.</p>
+            <p class="copy-text py-1"><?php echo apply_filters( "lmh_copy_footer", "All Rights Reserved." ); ?></p>
         </div>
     </footer>
 
@@ -93,6 +104,8 @@
     <script src="<?php bloginfo( 'template_url' ) ?>/assets/js/modernizr-2.6.2.min.js"></script>
     <script src="<?php bloginfo( 'template_url' ) ?>/assets/js/jquery.zoomslider.min.js"></script>
     <script src="<?php bloginfo( 'template_url' ) ?>/assets/js/theme-change.js"></script>
+
+     <script src="<?php bloginfo( 'template_url' ) ?>/assets/js/bootstrap.min.js"></script>
 
     <script>
        
@@ -136,9 +149,7 @@
         });
     </script>
 
-    <script src="<?php bloginfo( 'template_url' ) ?>/assets/js/bootstrap.min.js"></script>
-
-    <?php wp_footer() ?>
+    <?php wp_footer() ?>    
     
 </body>
 </html>
